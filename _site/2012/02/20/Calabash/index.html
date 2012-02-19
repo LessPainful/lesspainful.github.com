@@ -1,0 +1,505 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <title>blog.LessPainful.com</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <link href="http://www.lesspainful.com/stylesheets/styles.css?1328445224" media="screen" rel="stylesheet" type="text/css" />
+  <script src="http://www.lesspainful.com/javascripts/jquery-1.5.1.min.js?1328445224" type="text/javascript"></script>
+  <script type="text/javascript">
+    /*
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-22081783-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+    */
+
+    $(document).ready(function(){
+      //$("#logoring, #footer").css('opacity',0.7);
+      $("#logolink").hover(
+        function(){
+          $("#logoring").stop(true,false).animate({
+            'opacity' : 1
+          },'fast');
+        },
+        function(){
+          $("#logoring").stop(true,false).animate({
+            'opacity' : 0.7
+          },'fast');
+        }
+      );
+      $("#footer").hover(
+        function(){
+          $("#footer").stop(true,false).animate({
+            'opacity' : 1
+          },'fast');
+        },
+        function(){
+          $("#footer").stop(true,false).animate({
+            'opacity' : 0.7
+          },'fast');
+        }
+      );
+    });
+
+  </script>
+  <style type="text/css" media="screen">
+    
+    /* BLOG STYLES */
+    pre {
+      background-color: white;
+      color: black;
+      padding: 0px;
+    }
+    body {
+      background-color:#19171b; 
+      color:#c7c3ca;
+    }
+    a {
+      color:#a7e252;
+    }
+    a:hover {
+      color:#bef969;
+    }
+    .blogposts {
+      width:710px;
+    }
+    .post {
+      margin-top:40px;
+      width:100%;
+    }
+    .post div {
+      
+    }
+    .post .p_head {
+      height:100px;
+    }
+      .post .p_thumb {
+        width:80px;
+        height:80px;
+        margin-right:20px;
+        background-color:rgba(255,255,255,0.5);
+        background-repeat:no-repeat;
+        background-position:center center;
+        overflow:hidden;
+      }
+      .post .p_title {
+        width:600px;
+        height:58px;
+        padding:0;
+      }
+        .post .p_title h1, .post .p_title a {
+          color:#efefef;
+        }
+        .post .p_title a:hover {
+          color:#fff;
+        }
+        .post .p_title h1 {
+          position:absolute;
+          width:100%;
+          height:auto;
+          left:0;
+          bottom:0;
+          margin:0;
+          padding:0;
+          letter-spacing:0;
+          color:#efefef;
+        }
+      .post .p_info {
+        width:600px;
+        height:19px;
+        line-height:14px;
+        padding-top:5px;
+      }
+      .post .p_info {
+        
+      }
+    .post .p_content {
+      width:670px;
+      background:#efefef;
+      color:#333;
+      padding:20px;
+    }
+      .post .p_content .p_media {
+        width:100%;
+        height:290px;
+        background-color:rgba(0,0,0,0.15);
+        vertical-align:middle;
+        text-align:center;
+        background-position:center center;
+        background-repeat:no-repeat;
+        overflow:hidden;
+        margin-bottom:25px;
+      }
+      .post .p_content .p_body {
+        width:660px;
+      }
+        .post .p_content a {
+          color:#5b910c !important;
+        }
+        .post .p_content a:hover {
+          color:#72ae1b !important;
+        }
+      .post .p_content .p_link {
+        font-size:16px;
+        line-height:20px;
+        margin-top:10px;
+      }
+    
+    .posts_nav {
+      width:100%;
+      height:80px;
+      clear:both;
+      text-transform:uppercase;
+      font-size:16px;
+      line-height:16px;
+      font-family: "Arial Rounded MT Bold", Arial, Helvetica, sans-serif;
+      font-weight:bold;
+      margin-top:30px;
+    }
+      .posts_nav a {
+        position:absolute;
+        width:auto;
+        height:auto;
+        top:0;
+        border:0px solid blue;
+        padding:15px;
+      }
+      .posts_nav .older_posts_link {
+        left:-15px;
+      }
+      .posts_nav .newer_posts_link {
+        right:-15px;
+      }
+    
+      
+    .p_thumb, .p_content, .p_media, .blognavs .b_nav {
+      border-radius: 6px; -moz-border-radius: 6px; -webkit-border-radius: 6px;
+    }
+    
+    pre, code {
+      padding:5px;
+    }
+    
+    .blognavs {
+      width:170px;
+      margin-left:20px;
+      margin-top:110px;
+      border:0px solid blue;
+      right:-10px;
+    }
+    .blognavs .b_nav {
+      width:144px;
+      padding:20px 13px 22px 13px;
+      margin-top:30px;
+    }
+      .blognavs .b_nav h3, .blognavs .b_nav h3 a {
+        color:#fff !important;
+        margin:0 0 12px 0 !important;
+        padding:0 !important;
+        line-height:16px !important;
+      }
+      .blognavs .b_nav a {
+        position:relative;
+        float:left;
+        clear:both;
+        width:100%;
+        line-height:14px;
+        padding:5px 0;
+        border:1px solid rgba(255,255,255,0.25);
+        border-width:0px 0px 1px 0px;
+        color:#efefef;
+      }
+      .blognavs .b_nav h3 a {
+        margin:0;
+        padding:0;
+        border:0;
+      }
+      .blognavs .b_nav a:hover {
+        color:#fff;
+      }
+      .blognavs .b_nav a.first {
+        border-width:1px 0px 1px 0px;
+      }
+      .blognavs .b_nav a.last {
+        border-width:0px 0px 1px 0px;
+      }
+    
+    .p_content, .b_nav, .p_thumb {
+      box-shadow: 0px 3px 20px rgba(0,0,0,0.7);
+      -moz-box-shadow : 0px 3px 20px rgba(0,0,0,0.7);
+      -webkit-box-shadow : 0px 3px 20px rgba(0,0,0,0.7);
+    }
+    
+    .arrow_up_light {
+      position:absolute;
+      width:27px;
+      height:13px;
+      left:28px;
+      top:-13px;
+      background:transparent url('img/arrowbox_light.png') no-repeat left top;
+    }
+    
+    .arrow_left {
+      position:absolute;
+      width:27px;
+      height:27px;
+      left:-13px;
+      top:15px;
+    }
+    .arrow_left.blue {
+      background:transparent url('img/arrowbox_blue.png') no-repeat left top;
+    }
+    
+    .arrow_left.green {
+      background:transparent url('img/arrowbox_green.png') no-repeat left top;
+    }
+    
+    .arrow_left.dark {
+      background:transparent url('img/arrowbox_dark.png') no-repeat left top;
+    }
+    
+  </style>
+</head>
+<body class="">
+
+
+
+<div id="headerwrap">
+  <div id="header">
+    <div id="logoring"></div>
+
+    <div id="logo"></div>
+    <div id="logolink"><a href="/"><img src="img/blank.gif" alt="LessPainful" width="100%" height="100%" /></a></div>
+
+    <div id="topnav">
+      <a href="https://www.lesspainful.com/">Home</a>
+      <a href="https://www.lesspainful.com/pricing">Pricing</a>
+      <a href="https://www.lesspainful.com/documentation">Documentation</a>
+      <a href="https://blog.lesspainful.com" class="active">Blog</a>
+      <a href="/users/sign_up">Sign up</a>
+      <a href="/users/sign_in">Log in</a>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="wrap nopadding nomargin" style="min-height:400px">
+
+  <div class="center">
+    
+    <div class="blogposts">
+      
+      <section> 
+        <div class="content">
+  <div id="post">
+    <h1>!!!</h1>
+    <h2>Calabash: Functional Testing for Mobile Apps</h2>
+
+<p>Jonas and I(<em>should this be LessPainful?</em>) are proud to release
+Calabash, a new functional testing tool for mobile apps based on
+<a href="http://cukes.info">Cucumber</a>. LessPainful has been developing
+Calabash over the last year pursuing its expressive power, simplicity
+and stability. Calabash is the technology that powers device
+automation and test execution at
+<a href="http://www.lesspainful.com">LessPainful</a>, but as of today it is
+released as open source to the general public:
+<a href="http://github.com/calabash">http://github.com/calabash</a>.</p>
+
+<h3>The short story</h3>
+
+<p>The following sections are introductory, and describe Calabash in more
+detail for people who don&rsquo;t already know Cucumber, or who
+haven&rsquo;t been looking at functional testing for mobile apps. If that
+doesn&rsquo;t apply to you, you can go to the <a href="#rationale">Rationale
+and Benefits</a> section. If you&rsquo;re into the tech stuff, you could
+jump to the hardcore technical info in our detail posts about
+<a href="http://blog.lesspainful.com/...">Calabash Android</a> and
+<a href="http://blog.lesspainful.com/...">Calabash iOS</a>, or you can even dive
+right into the sources:
+<a href="http://github.com/calabash/calabash-android">calabash-android</a> and
+<a href="http://github.com/calabash/calabash-ios">calabash-ios</a>.</p>
+
+<h3>Introducing Calabash</h3>
+
+<p>Calabash consists of two libraries
+<a href="http://github.com/calabash/calabash-android">calabash-android</a> and
+<a href="http://github.com/calabash/calabash-ios">calabash-ios</a>. As you can
+imagine, calabash-android is the automation and testing library for
+Android, and similarly calabash-ios is for iOS.</p>
+
+<p>Calabash can be considered the underlying low-level libraries that
+empower the Cucumber tool to run automated functional tests on
+non-jailbroken Android and iOS phones and tablets as well as on
+simulators. These low-level libraries enable QA, business staff and
+developers to work at a high level: they write tests in a natural
+language using the terms and concepts of their business domain. For
+example, here is part of a test written with Calabash.</p>
+
+<pre><code>Feature: Rating a stand
+  Scenario: Find and rate a stand from the list
+    Given I am on the List
+    Then I should see a "rating" button
+    And I should not see "Dixie Burger &amp; Gumbo Soup"
+    And take picture
+
+    Then I touch the "rating" button
+    And I should see "Dixie Burger &amp; Gumbo Soup"
+    And take picture
+
+    When I touch "Dixie Burger &amp; Gumbo Soup"
+    Then I should see details for "Dixie Burger &amp; Gumbo Soup"
+
+    When I touch the "rate_it" button
+    Then I should see the rating panel
+
+    Then I touch "star5"
+    And I touch "rate"
+    And take picture
+</code></pre>
+
+<p>If you don&rsquo;t already know <a href="http://cukes.info">Cucumber</a>, it may
+surprise you that this description is actually an executable test
+specification that is part of a test suite for an iPhone app!</p>
+
+<p>In Cucumber and Calabash, one defines so-called feature files, that
+describe the intended behaviour of the app. You can think of a feature
+file as an executable test specification of a use case of the app. In
+our example above, the app contains functionality for rating a food
+stand at <a href="http://roskilde-festival.dk/uk/">Roskilde Festival</a>. A
+feature consists of one or more scenarios, corresponding more or less
+to the possible outcomes of the use cases. In our simple example we
+have only one scenario the &ldquo;sunshine&rdquo; scenario where we find a stand
+and rate it five stars. There would usually also be scenarios testing
+other things, e.g., error scenarios. Finally, each scenario consists
+of a number of steps. The usual form of a feature is:</p>
+
+<pre><code>Feature: name...
+  Scenario: ...
+    Step
+    Step
+    ...
+
+  Scenario: ...
+    Step
+    Step
+    ...
+</code></pre>
+
+<p>In our example, each line after &ldquo;Scenario&rdquo;
+corresponds to a step. In calabash, a step does one of three things:
+takes a user action (like touch, swipe, scroll, etc.), makes an
+assertion (like <code>Then I should see details for ".."</code>) or takes a
+screen-shot. The screen-shot step takes a snapshot of how your
+application looks at the point in the test. Screenshots can then be
+inspected for graphical errors that are hard to catch using
+assertions. Also, comparing screenshots across many different Android
+or iOS devices and operating system can be really useful. This type of visual test report, is part of what the <a href="http://www.lesspainful.com">LessPainful Service</a> offers. You can see an example our feature for the Roskilde app above in the <a href="#LessPainful">LessPainful section</a>.</p>
+
+<p><a name="rationale"></a></p>
+
+<h3>Rationale and Benefits</h3>
+
+<p>Why create a new open source functional test library? There are several reasons.</p>
+
+<dl>
+ <dt>Uniform interface across platforms</dt>
+ <dd>We wanted a single interface for
+    specifying the behaviour of mobile apps across platforms. Many
+    companies are creating the same app (or <em>almost</em> the same app) for
+    both iOS and Android, and pay double costs when it comes to
+    testing. With Calabash, you have the option of maintaining
+    only one feature file per app use-case, even if you are
+    developing for both Android and iOS. The platform or app
+    differences can be factored out into so-called <em>step definitions</em>
+    which are different per platform. (If you're thinking Windows Phone? Then, yes, it is an option, but we haven't gotten round to it yet ;)
+ </dd>
+ <dt>Cucumber</dt>
+ <dd>We wanted a high-level, domain-centric language for specification. The Cucumber technology gives us this. A Cucumber feature file can be written by QA, domain experts or developers; developers or technical test staff can then write step definitions to realize the steps on each platform (possibly using one of the many predefined steps or APIs).</dd>
+ <dt>Authenticity</dt>
+ <dd>We wanted a test automation technology that is as authentic as possible. Test must be able to run equally well on physical, non-jailbroken devices as on simulators. The <a href="#LessPainful">LessPainful Service</a> takes this to the next level, by providing a test execution environment for running tests concurrently on many different devices (we even do <a href="">rotation using little robots!</a>).
+ </dd>
+ <dt>Expressive power</dt>
+ <dd>There are some cool functional testing technologies out there already (like Robotium, Frank, KIF, Zucchini and UIAutomation). However, in our opinion each of them have advantages and disadvantages, and none of them fulfilled our needs completely (see details in the blog posts <a href="#">Calabash Android</a> and <a href="#">Calabash iOS</a>. We wanted a technology with expressive power: support for complex gestures (swipes, pinch, etc), embedded webviews, rotation, backgrounding ... all while running on non-jailbroken devices.
+ </dd>
+ <dt>Extensibility and Community</dt>
+ <dd>This is part of the reason why we are open sourcing Calabash. We want you to test your apps and ship better quality. We want Calabash users to be able to extend Calabash itself, and we want to build an open source community that is enthusiastic about the technology.
+ </dd>
+
+</dl>
+
+
+<p><a name="LessPainful"></a></p>
+
+<h3>LessPainful</h3>
+
+<p>What is the role of <a href="http://www.lesspainful.com">LessPainful</a> in
+regard to Calabash, and what services do we provide?</p>
+
+<p>LessPainful is the founder of Calabash, and we are its core
+committers. Calabash tests can be run &ldquo;in the cloud&rdquo; using the
+LessPainful service. The service automates running tests concurrently
+on several physical, non-jailbroken Android and iOS phones and
+tablets. We support several operating system versions and device
+language and regional settings.</p>
+
+<p>The LessPainful service provides visual test reports. This lets you
+easily compare test results and the visual appearance of your app
+across different devices. Here is an example test report from our sample food stand app:</p>
+
+<p><a href="img/test_report_overview.png">
+<img src="img/test_report_large.png" title="Test report overview" alt="Test report overview">
+</a></p>
+
+<p>The LessPainful Service is designed to support continuous integration
+providing a web service for running tests with every commit or at
+least on a daily basis.</p>
+
+<p>Here is part of an Android test running on &hellip; different models!</p>
+
+<p><a href="img/android_test_report_overview.png">
+<img src="img/android_test_report_large.png" title="Android test report overview" alt="Android test report overview">
+</a></p>
+
+  </div>
+</div>
+
+      </section>
+    </div>
+    
+    
+    
+    
+    
+    <div class="blognavs">
+      
+      <div class="b_nav bluebg">
+        <div class="arrow_left blue"></div>
+        <h3><a href="#more_stuff">Navigation<br/>and Stuff</a></h3>
+        <a href="https://www.lesspainful.com" class="first">LessPainful.com ›</a>
+        <a href="https://github.com/calabash">Calabash on GitHub ›</a>
+      </div>
+  </div>
+
+</div>
+
+
+
+
+<div id="footerwrap">
+  <div id="footer">
+    <div id="copyrightinfo">
+      Copyright © LessPainful 2011&nbsp;&nbsp;·&nbsp;&nbsp;LessPainful ApS CVR: 33 64 49 49&nbsp;&nbsp;·&nbsp;&nbsp;Phone: +45 77 34 27 40&nbsp;&nbsp;·&nbsp;&nbsp;<a href="mailto:contact@lesspainful.com">contact@lesspainful.com</a>
+    </div>
+    <div id="footerlogo"></div>
+  </div>
+</div>
+
+
+</body>
+</html>
