@@ -301,7 +301,7 @@
     <h1>!!!</h1>
     <h2>Calabash: Functional Testing for Mobile Apps</h2>
 
-<p>Jonas and I(<em>should this be LessPainful?</em>) are proud to release
+<p>Jonas and I are proud to release
 Calabash, a new functional testing tool for mobile apps based on
 <a href="http://cukes.info">Cucumber</a>. LessPainful has been developing
 Calabash over the last year pursuing its expressive power, simplicity
@@ -336,7 +336,7 @@ Android, and similarly calabash-ios is for iOS.</p>
 
 <p>Calabash can be considered the underlying low-level libraries that
 empower the Cucumber tool to run automated functional tests on
-non-jailbroken Android and iOS phones and tablets as well as on
+Android and iOS phones and tablets as well as on
 simulators. These low-level libraries enable QA, business staff and
 developers to work at a high level: they write tests in a natural
 language using the terms and concepts of their business domain. For
@@ -371,14 +371,15 @@ specification that is part of a test suite for an iPhone app!</p>
 <p>In Cucumber and Calabash, one defines so-called feature files, that
 describe the intended behaviour of the app. You can think of a feature
 file as an executable test specification of a use case of the app. In
-our example above, the app contains functionality for rating a food
-stand at <a href="http://roskilde-festival.dk/uk/">Roskilde Festival</a>. A
-feature consists of one or more scenarios, corresponding more or less
-to the possible outcomes of the use cases. In our simple example we
-have only one scenario the &ldquo;sunshine&rdquo; scenario where we find a stand
-and rate it five stars. There would usually also be scenarios testing
-other things, e.g., error scenarios. Finally, each scenario consists
-of a number of steps. The usual form of a feature is:</p>
+our example above, we have a <em>feature</em> which describes functionality
+for rating a food stand at
+<a href="http://roskilde-festival.dk/uk/">Roskilde Festival</a>. A feature
+consists of one or more scenarios, corresponding more or less to the
+possible outcomes of the use cases. In our simple example we have only
+one scenario the &ldquo;sunshine&rdquo; scenario where we find a stand and rate it
+five stars. There would usually also be scenarios testing other
+things, e.g., error scenarios. Finally, each scenario consists of a
+number of steps. The usual form of a feature is:</p>
 
 <pre><code>Feature: name...
   Scenario: ...
@@ -394,7 +395,7 @@ of a number of steps. The usual form of a feature is:</p>
 
 <p>In our example, each line after &ldquo;Scenario&rdquo;
 corresponds to a step. In calabash, a step does one of three things:
-takes a user action (like touch, swipe, scroll, etc.), makes an
+makes a user action (like touch, swipe, scroll, etc.), makes an
 assertion (like <code>Then I should see details for ".."</code>) or takes a
 screen-shot. The screen-shot step takes a snapshot of how your
 application looks at the point in the test. Screenshots can then be
@@ -404,7 +405,13 @@ or iOS devices and operating system can be really useful. This type of visual te
 
 <h3>How it works</h3>
 
-<p><code>TODO</code> Diagram of Calabash architecture for iOS and Android. Explanation of ruby apis.</p>
+<p>We&rsquo;ll describe briefly how Calabash works. You can get more details in the blog posts on <a href="http://blog.lesspainful.com/...">Calabash Android</a> and <a href="http://blog.lesspainful.com/...">Calabash iOS</a>. Calabash iOS consists of two parts: a client library written in Ruby (a Clojure/JVM version is coming too), and <code>calabash.framework</code>, a server framework written in Objective-C. To use calabash you make a special test target in XCode that links with <code>calabash.framework</code>. The application is otherwise unchanged. The server framework will start an HTTP server inside your app that listens for requests from the client library.</p>
+
+<p>The cucumber tool executes your feature files which contain steps that are defined either in <em>predefined</em> or <em>custom</em> (user defined) steps definitions. Custom steps are written using the API that the client library exposes. The API methods make HTTP requests to the server, which does things like finding components in the UI and taking actions on them. Here is an illustration:</p>
+
+<p><img src="img/calabash-ios.png" alt="asdf" /></p>
+
+<p>Calabash Android slightly different&hellip;(Jonas)</p>
 
 <p><a name="rationale"></a></p>
 
