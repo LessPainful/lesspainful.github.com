@@ -330,14 +330,7 @@ released as open source to the general public:
 Calabash for people who don&rsquo;t already know Cucumber, or who haven&rsquo;t
 been looking at functional testing for mobile apps. If that doesn&rsquo;t
 apply to you, you can go to the <a href="#rationale">Rationale and
-Benefits</a> section &ndash; otherwise just continue reading :) If you&rsquo;re
-into the tech stuff, you could jump to the hardcore technical info in
-our detail posts about
-<a href="http://blog.lesspainful.com/...">Calabash Android</a>  and
-<a href="http://blog.lesspainful.com/...">Calabash iOS</a>, or you can even dive
-right into the sources:
-<a href="http://github.com/calabash/calabash-android">calabash-android</a> and
-<a href="http://github.com/calabash/calabash-ios">calabash-ios</a>.</p>
+Benefits</a> section &ndash; otherwise just continue reading :)</p>
 
 <h3>Introducing Calabash</h3>
 
@@ -416,15 +409,17 @@ inspected for graphical errors that are hard to catch using
 assertions. Also, comparing screenshots across many different Android
 or iOS devices and operating system can be really useful. This type of visual test report, is part of what the <a href="http://www.lesspainful.com">LessPainful Service</a> offers. You can see an example our feature for the Roskilde app above in the <a href="#LessPainful">LessPainful section</a>.</p>
 
-<h3>How it works</h3>
+<h3>Overview: How it works</h3>
 
-<p>We&rsquo;ll describe briefly how Calabash works. You can get more details in the blog posts on <a href="http://blog.lesspainful.com/...">Calabash Android</a> and <a href="http://blog.lesspainful.com/...">Calabash iOS</a>. Calabash iOS consists of two parts: a client library written in Ruby (a Clojure/JVM version is coming too), and <code>calabash.framework</code>, a server framework written in Objective-C. To use calabash you make a special test target in XCode that links with <code>calabash.framework</code>. The application is otherwise unchanged. The server framework will start an HTTP server inside your app that listens for requests from the client library.</p>
+<p>We&rsquo;ll describe briefly how Calabash works. You can get more details in the blog posts on <a href="http://blog.lesspainful.com/...">Calabash Android</a> and <a href="http://blog.lesspainful.com/...">Calabash iOS</a>. You can also go straight to the sources: <a href="http://github.com/calabash/calabash-android">http://github.com/calabash/calabash-android</a>, <a href="http://github.com/calabash/calabash-ios">http://github.com/calabash/calabash-ios</a> and <a href="http://github.com/calabash/calabash-ios-server">http://github.com/calabash/calabash-ios-server</a>.</p>
+
+<p><em>Calabash iOS</em> consists of two parts: a client library written in Ruby, and <code>calabash.framework</code>, a server framework written in Objective-C (a Clojure/JVM version of the client is coming too!). To use calabash you make a special test target in XCode that links with <code>calabash.framework</code>. The application is otherwise unchanged. The server framework will start an HTTP server inside your app that listens for requests from the client library.</p>
 
 <p>The cucumber tool executes your feature files which contain steps that are defined either in <em>predefined</em> or <em>custom</em> (user defined) steps definitions. Custom steps are written using the API that the client library exposes. The API methods make HTTP requests to the server, which does things like finding components in the UI and taking actions on them. Here is an illustration:</p>
 
 <p><img src="img/calabash-ios.png" alt="asdf" /></p>
 
-<p>Calabash Android slightly different&hellip;(Jonas)</p>
+<p><em>Calabash Android</em> is slightly different&hellip;(<a href="#TODO_Jonas">Jonas</a>)</p>
 
 <p><a name="rationale"></a></p>
 
@@ -450,7 +445,7 @@ or iOS devices and operating system can be really useful. This type of visual te
  <dd>We wanted a test automation technology that is as authentic as possible. Test must be able to run equally well on physical, non-jailbroken devices as on simulators. The <a href="#LessPainful">LessPainful Service</a> takes this to the next level, by providing a test execution environment for running tests concurrently on many different devices (we even do <a href="">rotation using little robots!</a>).
  </dd>
  <dt>Expressive power</dt>
- <dd>There are some cool functional testing technologies out there already (like Robotium, Frank, KIF, Zucchini and UIAutomation). However, in our opinion each of them have advantages and disadvantages, and none of them fulfilled our needs completely (see details in the blog posts <a href="#">Calabash Android</a> and <a href="#">Calabash iOS</a>. We wanted a technology with expressive power: support for complex gestures (swipes, pinch, etc), embedded webviews, rotation, backgrounding ... all while running on non-jailbroken devices.
+ <dd>There are some cool functional testing technologies out there already (like Robotium, Frank, NativeDriver, KIF, Zucchini and UIAutomation). However, in our opinion each of them have advantages and disadvantages, and none of them fulfilled our needs completely (see details in the blog posts <a href="#">Calabash Android</a> and <a href="#">Calabash iOS</a>). We wanted a technology with expressive power: support for complex gestures (swipes, pinch, etc), embedded webviews, rotation, backgrounding ... all while running on non-jailbroken devices.
  </dd>
  <dt>Extensibility and Community</dt>
  <dd>This is part of the reason why we are open sourcing Calabash. We want you to test your apps and ship better quality. We want Calabash users to be able to extend Calabash itself, and we want to build an open source community that is enthusiastic about the technology.
@@ -466,24 +461,32 @@ or iOS devices and operating system can be really useful. This type of visual te
 <p>What is the role of <a href="http://www.lesspainful.com">LessPainful</a> in
 regard to Calabash, and what services do we provide?</p>
 
-<p>LessPainful is the founder of Calabash, and we are its core
-committers. Calabash tests can be run &ldquo;in the cloud&rdquo; using the
-LessPainful service. The service automates running tests concurrently
-on several physical, non-jailbroken Android and iOS phones and
-tablets. We support several operating system versions and device
-language and regional settings.</p>
+<p>LessPainful is the founder of Calabash: we are its core committers and
+we are dedicated to continuously improving it. Our business model
+consists of two offerings.</p>
+
+<p>First, we offer commercial support, training and consulting on
+automated testing of mobile apps. We can also help setup advanced
+continuous integration build environments on iOS and Android.</p>
+
+<p>Secondly, LessPainful provides a test execution service which runs
+Calabash tests &ldquo;in the cloud&rdquo;. The service automates running tests
+concurrently on several physical, non-jailbroken Android and iOS
+phones and tablets. We support several operating system versions, as
+well as device language and regional settings.</p>
 
 <p>The LessPainful service provides visual test reports. This lets you
 easily compare test results and the visual appearance of your app
-across different devices. Here is an example test report from our sample food stand app:</p>
+across different devices. Here is an example test report from our
+example &ldquo;food stand&rdquo; app:</p>
 
 <p><a href="img/test_report_overview.png">
 <img src="img/test_report_large.png" title="Test report overview" alt="Test report overview">
 </a></p>
 
 <p>The LessPainful Service is designed to support continuous integration
-providing a web service for running tests with every commit or at
-least on a daily basis.</p>
+by providing a web service for running tests with every commit or on a
+daily basis.</p>
 
 <p>Here is part of an Android test running on &hellip; different models!</p>
 
