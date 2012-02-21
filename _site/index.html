@@ -303,6 +303,101 @@
       <div class="p_head">
         <div class="p_thumb" style="background-image:url('img/karl.jpg')"></div>
         <div class="p_title">
+          <h1>An Overview of Calabash iOS</h1>
+        </div>
+        <div class="p_info">
+          Posted by Karl Krukow - February 21, 2012
+        </div>
+      </div>
+      <div class="p_content lightbg">
+        <div class="arrow_up_light"></div>
+        <div class="p_body">
+        <h2>An Overview of Calabash iOS</h2>
+
+<p>This post describes <a href="http://github.com/calabash/calabash-ios">Calabash iOS</a> in some technical detail. It will give you an architectural overview and compare Calabash iOS with some other functional testing alternatives (hence, it is fairly advanced and assumes that you are familiar with <a href="http://cukes.info">Cucumber</a> and iOS development).</p>
+
+<ul>
+<li>For an introduction to Calabash and LessPainful (and some info on Cucumber), please read <a href="...">Calabash: Functional Testing for Mobile Apps</a>.</li>
+<li>Instructions for how to use Calabash in your iOS project can be found in the <a href="http://github.com/calabash/calabash-ios">Github Readme</a>.</li>
+<li>For a tutorial on how to use Calabash iOS once setup, please see <a href="http://github.com/calabash/calabash-ios/wiki/Tutorial">Calabash iOS tutorial</a>.</li>
+</ul>
+
+
+<h2>Calabash Architecture</h2>
+
+<p>Calabash tests are usually run with the <a href="http://cukes.info">Cucumber tool</a>. A Calabash test suite consist of three parts:</p>
+
+<ul>
+<li><p>Your app, linked with the <code>calabash.framework</code>. In XCode, you make a new test target and link with Calabash only in this target. The framework embeds an HTTP server in your app (of course, this is only in builds of your new test target). The Calabash client library (see next bullet) makes HTTP requests to the server when it wants to do something with the current view.</p></li>
+<li><p>The Calabash client library and step definitions. Calabash supports two types of step definitions: <a href="https://github.com/calabash/calabash-ios/wiki/Predefined,-canned-steps">built-in</a> and custom. The built-ins define general and domain-neutral steps that are intended to give you a quick and easy start. They contain steps like: <code>I should see a "..." button</code> and <code>I swipe right</code>. The custom steps are written by you, and they&rsquo;re specific to your domain or application. Examples could be: <code>I should be on the Login screen</code>, <code>I login as Pete</code> or <code>I add a track to my playlist</code>. To implement a custom step you can use methods defined in the Calabash <em>client library</em>, calabash-cucumber,  which is part of <a href="http://github.com/calabash/calabash-ios">Calabash iOS</a>.</p></li>
+<li><p>Your feature files. The feature files describe the app use-cases you want to test. They are simultaneously a specification of the behaviour of your app and an executable test suite.</p></li>
+</ul>
+
+
+<p>You can visualize this as:</p>
+
+<p><img src="img/calabash-ios.png" alt="Calabash-iOS architecture" /></p>
+
+<p>Calabash iOS supports running on the iOS simulator as well as (non-jailbroken) iPhones, iPads and iPod touches. The calabash server framework is distributed as a  universal framework for your convenience.</p>
+
+<p>The client library, calabash-cucumber, is installed using <a href="http://rubygems.org/">RubyGems</a> (see detailed instructions under <a href="https://github.com/calabash/calabash-ios">Installing the client</a>).</p>
+
+<h3>Comparison with other functional testing systems</h3>
+
+<p>There are several options out there for functional testing on iOS. Apple provides its <a href="https://developer.apple.com/library/ios/#documentation/DeveloperTools/Reference/UIAutomationRef/_index.html">UIAutomation</a>, there is <a href="http://www.zucchiniframework.org/">Zucchini</a>, <a href="https://github.com/moredip/Frank">Frank</a> by Pete Hodgson, <a href="https://github.com/square/KIF">KIF</a> by square, <a href="http://www.gorillalogic.com/fonemonkey">FoneMonkey</a> by Gorilla Logic, <a href="https://github.com/unboxed/icuke">iCuke</a> by Rob Holland, and probably a few I&rsquo;ve looked at and forgotten again!</p>
+
+<p>All the projects have their advantages and disadvantages, Calabash included. But we think that Calabash hits a sweet spot that none other the other options cover.</p>
+
+<h3>Frank</h3>
+
+<p><a href="https://github.com/moredip/Frank">Frank</a> is the library closest to Calabash; in fact, when we started experimenting with iOS support at LessPainful we started with Frank. Frank is a very cool project by a great person (that&rsquo;s you Pete), and Calabash is highly inspired by it. But there were a couple of important reasons why we could not use Frank.</p>
+
+<p>First, Frank is licensed using GNU GPLv3 and we wanted to use the less restrictive EPL. Pete actually didn&rsquo;t want to license Frank as GPL, but since Frank is based on UISpec which is GPL'ed, he had to. We did not want the <a href="http://code.google.com/p/uispec/">UISpec</a> project as a dependency.</p>
+
+<p>Second, when we started to look at Frank, it was a bit of a pain to set up (in the mean time, its actually gotten much better). It required modification of you app source, inclusion of static resources and source files. We wanted calabash to be easy to set up, so we made Calabash a universal framework.</p>
+
+<p>Third, Frank is focused on running in the iOS simulator. We wanted something that ran equally well on simulator, iPhone and iPad. There is no fundamental reason that the Frank architecture shouldn&rsquo;t work on physical devices (indeed Calabash has the same architecture), but many of Frank&rsquo;s step definitions are simulator only.</p>
+
+<p>Finally, we needed support for some advanced features that Frank just didn&rsquo;t have. Frank&rsquo;s touch emulation is derived from <a href="http://code.google.com/p/uispec/">UISpec</a>, which has some disadvantages: it only supports tapping, and actually doesn&rsquo;t seem to work in all cases (<a href="https://groups.google.com/group/frank-discuss/tree/browse_frm/month/2011-09/cc1fb65c717180c5">for example on a UISwitch</a>). We wanted support for gestures like swipe, pinch-to-zoom, backgrounding and rotation. We wanted support for querying and acting on UIWebViews.</p>
+
+<p>Frank also has the cool Symbiote tool which let&rsquo;s you explore your app from a browser. We don&rsquo;t have Symbiote in Calabash, but instead we have a powerful console based tool for interacting and exploring your application (more on this in a later blog post).</p>
+
+<h3>KIF, iCuke, FoneMonkey</h3>
+
+<p>KIF is another cool project. KIF has an Apache 2.0 license which is ok, but two primary things kept us from going down this route. First, KIF is based on the same touch emulation code as UISpec, and has the same limitations (which actually goes back to a seminal CocoaWithLove post from 2008, <a href="http://cocoawithlove.com/2008/10/synthesizing-touch-event-on-iphone.html">Synthesizing touch events on iPhone</a>). Secondly, KIF tests are written in Objective-C, and we specifically wanted <a href="http://cukes.info">Cucumber</a>.</p>
+
+<p><a href="https://github.com/unboxed/icuke">iCuke</a> actually looked very promising two years ago. Unfortunately its author, Rob Holland, has abandoned it, and we had a difficult time proceeding with it.</p>
+
+<p>FoneMonkey, is GPL licensed and doesn&rsquo;t support Cucumber (also, I have a personal issue with recording-based approaches to test code generation).</p>
+
+<h3>UIAutomation and Zucchini</h3>
+
+<p>Apple&rsquo;s UIAutomation framework is actually quite advanced in supporting various gestures. It&rsquo;s also simple to set up since it works without modification to the app (runs via instruments). There are a couple of reasons why we decided not to use UIAutomation.</p>
+
+<p>First, UIAutomation is not open source &ndash; this means we have to wait for Apple to make bug fixes, and we can&rsquo;t extend it. It is also very poorly documented by Apple, and not that much information available on the net.</p>
+
+<p>Second, tests are written in JavaScript using a horrible API, resulting in tests that are too easy to break when making minor changes to the UI (IMHO). The tool for developing and running tests (UIAutomation Instrument) gives an inefficient workflow, for example, by locking the editing file, missing the ability to interactively explore your app and running only parts of a test. Also, screenshotting only works on device.</p>
+
+<p>Third, UIAutomation is hard to get working in a continuous integration setup (in fact, when we first looked at it, CI was completely impossible). Extracting tests results and screenshots in a CI friendly way is hard.</p>
+
+<p><a href="http://www.zucchiniframework.org/">Zucchini</a>, is a new project that&rsquo;s very cool. It has some great addons for working with app screenshots (we might &lsquo;borrow&rsquo; those for Calabash :), and it makes the developer experience much better by using CoffeeScript instead of JavaScript and by coming with some convenience tools. However, by compiling to UIAutomation compatible JavaScript and running via UIAutomation, it has some of the same problems as UIAutomation itself (lack of documentation, Apple control, the fragility of tests, etc.). Also, we didn&rsquo;t want Calabash users to be required to learn CoffeeScript.</p>
+
+<h3>What&rsquo;s next?</h3>
+
+<p>In upcoming posts we&rsquo;ll describe more implementation details of Calabash iOS. For example, we&rsquo;ll show how to make advanced custom steps using the client library API, we&rsquo;ll look at support for rotation and gestures like swiping, and even how you can record your own advanced gestures. We&rsquo;ll also look at an efficient workflow for writing tests in an interactive and exploratory manner.</p>
+
+<h3>Discuss!</h3>
+
+<p>Discuss this on Hackernews!</p>
+
+        </div>
+      </div>
+    </div>
+  
+    <div class="post">
+      <div class="p_head">
+        <div class="p_thumb" style="background-image:url('img/karl.jpg')"></div>
+        <div class="p_title">
           <h1>Calabash</h1>
         </div>
         <div class="p_info">
@@ -417,7 +512,7 @@ or iOS devices and operating system can be really useful. This type of visual te
 
 <p>The cucumber tool executes your feature files which contain steps that are defined either in <em>predefined</em> or <em>custom</em> (user defined) steps definitions. Custom steps are written using the API that the client library exposes. The API methods make HTTP requests to the server, which does things like finding components in the UI and taking actions on them. Here is an illustration:</p>
 
-<p><img src="img/calabash-ios.png" alt="asdf" /></p>
+<p><img src="img/calabash-ios.png" alt="Calabash-iOS architecture" /></p>
 
 <p><em>Calabash Android</em> is slightly different&hellip;(<a href="#TODO_Jonas">Jonas</a>)</p>
 
@@ -493,6 +588,10 @@ daily basis.</p>
 <p><a href="img/android_test_report_overview.png">
 <img src="img/android_test_report_large.png" title="Android test report overview" alt="Android test report overview">
 </a></p>
+
+<h3>Discuss!</h3>
+
+<p>Discuss this on Hackernews!</p>
 
         </div>
       </div>
