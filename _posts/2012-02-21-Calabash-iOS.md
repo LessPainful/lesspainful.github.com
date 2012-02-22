@@ -74,7 +74,3 @@ Third, UIAutomation is hard to get working in a continuous integration setup (in
 
 ### What's next?
 In upcoming posts we'll describe more implementation details of Calabash iOS. For example, we'll show how to make advanced custom steps using the client library API, we'll look at support for rotation and gestures like swiping, and even how you can record your own advanced gestures. We'll also look at an efficient workflow for writing tests in an interactive and exploratory manner.
-
-
-### Discuss!
-Discuss this on Hackernews!
