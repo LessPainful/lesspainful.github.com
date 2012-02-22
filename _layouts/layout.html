@@ -326,6 +326,14 @@
         <a href="https://www.lesspainful.com" class="first">LessPainful.com ›</a>
         <a href="https://github.com/calabash">Calabash on GitHub ›</a>
       </div>
+
+      <div class="b_nav greenbg">
+        <div class="arrow_left green"></div>
+        <h3><a href="#categories_page">History</a></h3>
+        {% for post in site.posts %}
+          <a class="{% if forloop.first %}first{% endif %}{% if forloop.last %}last{% endif %}" href="{{ post.url }}"> {{ post.title }} ›</a>
+        {% endfor %}
+      </div>
   </div>
 
 </div>
