@@ -28,7 +28,7 @@ Calabash tests are usually run with the [Cucumber tool](http://cukes.info). A Ca
 
 You can visualize this as:
 
-![Calabash-iOS architecture](img/calabash-ios.png)
+![Calabash-iOS architecture](/img/calabash-ios.png)
 
 Calabash iOS supports running on the iOS simulator as well as (non-jailbroken) iPhones, iPads and iPod touches. The calabash server framework is distributed as a  universal framework for your convenience.
 
