@@ -3,8 +3,21 @@ layout: layout
 ---
 
 <div class="content">
-  <div id="post">
-    <h1>{{ post.title }}!!!</h1>
-    {{ content }}
-  </div>
+  <div class="post">
+      <div class="p_head">
+        <div class="p_thumb" style="background-image:url('/img/{{ page.author_img }}')"></div>
+        <div class="p_title">
+          <h1><a href="{{ page.url }}">{{ page.title }}</a></h1>
+        </div>
+        <div class="p_info">
+          Posted by {{ page.author }} - {{ page.date | date: "%B %e, %Y" }}
+        </div>
+      </div>
+      <div class="p_content lightbg">
+        <div class="arrow_up_light"></div>
+        <div class="p_body">
+        {{ content }}
+        </div>
+      </div>
+    </div>
 </div>
