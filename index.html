@@ -7,9 +7,9 @@ title: blog.lesspainful.com
   {% for post in site.posts %}
     <div class="post">
       <div class="p_head">
-        <div class="p_thumb" style="background-image:url('img/{{ post.author_img }}')"></div>
+        <div class="p_thumb" style="background-image:url('/img/{{ post.author_img }}')"></div>
         <div class="p_title">
-          <h1>{{ post.title }}</h1>
+          <h1><a href="{{ post.url }}">{{ post.title }}</a></h1>
         </div>
         <div class="p_info">
           Posted by {{ post.author }} - {{ post.date | date: "%B %e, %Y" }}
@@ -18,7 +18,7 @@ title: blog.lesspainful.com
       <div class="p_content lightbg">
         <div class="arrow_up_light"></div>
         <div class="p_body">
-        {{post.content}}
+        {{ post.content }}
         </div>
       </div>
     </div>
