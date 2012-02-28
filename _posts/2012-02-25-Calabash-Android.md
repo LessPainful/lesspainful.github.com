@@ -8,7 +8,7 @@ published: false
 
 An Overview of Calabash Android
 -------------------------
-This post describes [Calabash Android](http://github.com/calabash/calabash-android) in some technical detail. It will give you an architectural overview and compare Calabash Android. It assumes that you  are familiar with [Cucumber](http://cukes.info) and Android development).
+This post describes [Calabash Android](http://github.com/calabash/calabash-android) in some technical detail. It will give you an architectural overview of Calabash Android and a resume of the functional testing tools available for Android. It assumes that you  are familiar with [Cucumber](http://cukes.info) and Android development.
 
 - For an introduction to Calabash and LessPainful (and some info on Cucumber), please read [Calabash: Functional Testing for Mobile Apps](...).
 - Instructions for how to use Calabash in your Android project can be found on [Github](http://github.com/calabash/calabash-android).
@@ -16,7 +16,7 @@ This post describes [Calabash Android](http://github.com/calabash/calabash-andro
 
 Calabash Android Architecture
 -----------------------------
-When a Calabash Android test is executed both your local computer and a device is involed. The device might an emulator or a actual physical device.
+When a Calabash Android test is executed both your local computer and a device is involved. The device might be an emulator or a actual physical device.
 It looks somethings like this:
 ![Calabash-iOS architecture](/img/CalabashAndroidArchitecture.png)
 
@@ -32,10 +32,18 @@ When you get more into Calabash you can implement your own custom steps that use
 
 Functional Testing tools for Android
 ------------------------------------
-The Android SDK comes with a testing framework located in the `android.test`. [According to Google](http://developer.android.com/resources/tutorials/testing/helloandroid_test.html) it is easy to use. However, I'm pretty sure that the person who wrote that either never wrote and maintained a test using `ActivityInstrumentationTestCase2` or has totally misunderstood the "easy to use" concept.
+The Android SDK comes with a testing framework located in the `android.test`. [According to Google](http://developer.android.com/resources/tutorials/testing/helloandroid_test.html) it is easy to use. However, I'm pretty sure that the person who wrote that either never wrote and maintained a test using `ActivityInstrumentationTestCase2` or has totally misunderstood the "easy to use" concept. :-)
 
-When [Renas Reda](http://www.linkedin.com/pub/renas-reda/25/70a/932) created [Robotium](www.robotium.org) things became a lot easier. Robotium is a utility that handles a lot of the small details you really don't want to be concerned about in a functional test. You are still writing your test using Java and JUnit but a lot of the very annoying things from vanilla Android testing. Today all the Android projects that I know of that do any kind of testing use Robotium (or Calabash). So if you are still fighting `android.test` and want to clean up your tests you should give Robotium a try and send Renas a happy thought.
+When [Renas Reda](http://www.linkedin.com/pub/renas-reda/25/70a/932) created [Robotium](http://www.robotium.org) things became a lot easier. Robotium is a utility that handles a lot of the small details you really don't want to be concerned about in a functional test. You are still writing your test using Java and JUnit but a lot of the very annoying things from vanilla Android testing is now taking care of and don't pollute your tests. Today all the Android projects that I know of that do any kind of testing use Robotium or Calabash. So if you are still fighting `android.test` and want to clean up your tests you should give Robotium a try and send Renas a happy thought.
 
-Even when using Robotium my experience from several large Android projects is that writing functional testing in Java is just wrong. Over time the ever growing test suite because more and more complicated and takes more and more resources to maintain. But hey! Why wouldn't it be like that? That is exactly the same experience we had when writing functional test for websites!
+Even when using Robotium my experience from several large Android projects is that writing functional testing in Java is just wrong. Over time, the ever growing test suite becomes more and more complicated and takes more and more resources to maintain. But hey! Why wouldn't it be like that? That is exactly the same experience we had when writing functional test for websites!
+
+Calabash uses Robotium as a library to make the interaction with the tested app as robust as possible while letting the developer or tester write precise clean test that are easy to maintain.
 
 And that's why you should give [Calabash Android](http://github.com/calabash/calabash-android) a try.
+
+Testing Hybrid Apps
+-------------------
+If you are using Appcelerator, PhoneGap, Sencha Touch or any of the other frameworks for creating *hybrid apps*. 
+You should really take a look at the Calabash. By using the same Cucumber interface for a native app you can test HTML 5 part of your application.
+Testing webviews has not been posible with the currently available test frameworks. But with Calabash you can!
