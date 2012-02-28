@@ -3,7 +3,6 @@ layout: post
 title: An Overview of Calabash Android
 author: Jonas Maturana Larsen
 author_img: jonas.jpg
-published: false
 ---
 
 An Overview of Calabash Android
@@ -32,13 +31,13 @@ When you get more into Calabash you can implement your own custom steps that use
 
 Functional Testing tools for Android
 ------------------------------------
-The Android SDK comes with a testing framework located in the `android.test`. [According to Google](http://developer.android.com/resources/tutorials/testing/helloandroid_test.html) it is easy to use. However, I'm pretty sure that the person who wrote that either never wrote and maintained a test using `ActivityInstrumentationTestCase2` or has totally misunderstood the "easy to use" concept. :-)
+The Android SDK comes with a testing framework located in the `android.test` package. [According to Google](http://developer.android.com/resources/tutorials/testing/helloandroid_test.html) it is easy to use. However, I'm pretty sure that the person who wrote that either never wrote and maintained a test using `ActivityInstrumentationTestCase2` or has totally misunderstood the "easy to use" concept. :-)
 
 When [Renas Reda](http://www.linkedin.com/pub/renas-reda/25/70a/932) created [Robotium](http://www.robotium.org) things became a lot easier. Robotium is a utility that handles a lot of the small details you really don't want to be concerned about in a functional test. You are still writing your test using Java and JUnit but a lot of the very annoying things from vanilla Android testing is now taking care of and don't pollute your tests. Today all the Android projects that I know of that do any kind of testing use Robotium or Calabash. So if you are still fighting `android.test` and want to clean up your tests you should give Robotium a try and send Renas a happy thought.
 
 Even when using Robotium my experience from several large Android projects is that writing functional testing in Java is just wrong. Over time, the ever growing test suite becomes more and more complicated and takes more and more resources to maintain. But hey! Why wouldn't it be like that? That is exactly the same experience we had when writing functional test for websites!
 
-Calabash uses Robotium as a library to make the interaction with the tested app as robust as possible while letting the developer or tester write precise clean test that are easy to maintain.
+Calabash uses Robotium as a library to make the interaction with the tested app as robust as possible while letting the developer or tester write precise and clean test that are easy to maintain.
 
 And that's why you should give [Calabash Android](http://github.com/calabash/calabash-android) a try.
 
