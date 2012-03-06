@@ -12,7 +12,7 @@ Calabsh iOS is a new open source project for functional testing of iPhone and iP
 
 This post describes [Calabash iOS](http://github.com/calabash/calabash-ios) in some technical detail. It will give you an architectural overview and compare Calabash iOS with some other functional testing alternatives (hence, it is fairly advanced and assumes that you are familiar with [Cucumber](http://cukes.info) and iOS development).
 
-- For an introduction to Calabash and LessPainful (and some info on Cucumber), please read [Calabash: Functional Testing for Mobile Apps](...).
+- For an introduction to Calabash and LessPainful (and some info on Cucumber), please read [Calabash: Functional Testing for Mobile Apps](http://blog.lesspainful.com/2012/02/20/Calabash/).
 - Instructions for how to use Calabash in your iOS project can be found in the [Github Readme](http://github.com/calabash/calabash-ios).
 - For a tutorial on how to use Calabash iOS once setup, please see [Getting started guide](https://github.com/calabash/calabash-ios/wiki).
 
@@ -45,7 +45,7 @@ All the projects have their advantages and disadvantages, Calabash included. But
 
 
 ### Frank
-[Frank](https://github.com/moredip/Frank) is the library closest to Calabash; in fact, when we started experimenting with iOS support at LessPainful we started with Frank. Frank is a very cool project by a great person (that's you Pete), and Calabash is highly inspired by it. But there were a couple of important reasons why we could not use Frank.
+[Frank](https://github.com/moredip/Frank) is the library closest to Calabash; in fact, when we started experimenting with iOS support at LessPainful we started with Frank. Frank is a very cool project by a great person (that's you [Pete](https://twitter.com/#!/beingagile)), and Calabash is highly inspired by it. But there were a couple of important reasons why we could not use Frank.
 
 First, Frank is licensed using GNU GPLv3 and we wanted to use the less restrictive EPL. Pete actually didn't want to license Frank as GPL, but since Frank is based on UISpec which is GPL'ed, he had to. We did not want the [UISpec](http://code.google.com/p/uispec/) project as a dependency.
 
@@ -58,7 +58,7 @@ Finally, we needed support for some advanced features that Frank just didn't hav
 Frank also has the cool Symbiote tool which let's you explore your app from a browser. We don't have Symbiote in Calabash, but instead we have a powerful console based tool for interacting and exploring your application (more on this in a later blog post).
 
 ### KIF, iCuke, FoneMonkey
-KIF is another cool project. KIF has an Apache 2.0 license which is ok, but two primary things kept us from going down this route. First, KIF is based on the same touch emulation code as UISpec, and has the same limitations (which actually goes back to a seminal CocoaWithLove post from 2008, [Synthesizing touch events on iPhone](http://cocoawithlove.com/2008/10/synthesizing-touch-event-on-iphone.html)). Secondly, KIF tests are written in Objective-C, and we specifically wanted [Cucumber](http://cukes.info) for the reasons outlined in the [Introductory post](...).
+KIF is another cool project. KIF has an Apache 2.0 license which is ok, but two primary things kept us from going down this route. First, KIF is based on the same touch emulation code as UISpec, and has the same limitations (which actually goes back to a seminal CocoaWithLove post from 2008, [Synthesizing touch events on iPhone](http://cocoawithlove.com/2008/10/synthesizing-touch-event-on-iphone.html)). Secondly, KIF tests are written in Objective-C, and we specifically wanted [Cucumber](http://cukes.info) for the reasons outlined in the [Introductory post](http://blog.lesspainful.com/2012/02/20/Calabash/).
 
 [iCuke](https://github.com/unboxed/icuke) actually looked very promising two years ago. Unfortunately its author, Rob Holland, has abandoned it, and we had a difficult time proceeding with it.
 
