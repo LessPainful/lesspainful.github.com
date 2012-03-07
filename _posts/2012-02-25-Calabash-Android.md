@@ -15,9 +15,9 @@ This post describes [Calabash Android](http://github.com/calabash/calabash-andro
 
 Calabash Android Architecture
 -----------------------------
-When a Calabash Android test is executed both your local computer and a device is involved. The device might be an emulator or a actual physical device.
-It looks somethings like this:
-![Calabash-iOS architecture](/img/CalabashAndroidArchitecture.png)
+When a Calabash Android test is executed both your local computer and a device is involved. The device might be an emulator or an actual physical device.
+The setup looks like this:
+![Calabash-Android architecture](/img/CalabashAndroidArchitecture.png)
 
 - Features. The feature files describe the user-stories you want to test. You can test one or more features in one test run.
 
@@ -35,7 +35,7 @@ The Android SDK comes with a testing framework located in the `android.test` pac
 
 When [Renas Reda](http://www.linkedin.com/pub/renas-reda/25/70a/932) created [Robotium](http://www.robotium.org) things became a lot easier. Robotium is a utility that handles a lot of the small details you really don't want to be concerned about in a functional test. You are still writing your test using Java and JUnit but a lot of the very annoying things from vanilla Android testing is now taking care of and don't pollute your tests. Today all the Android projects that I know of that do any kind of testing use Robotium or Calabash. So if you are still fighting `android.test` and want to clean up your tests you should give Robotium a try and send Renas a happy thought.
 
-Even when using Robotium my experience from several large Android projects is that writing functional testing in Java is just wrong. Over time, the ever growing test suite becomes more and more complicated and takes more and more resources to maintain. But hey! Why wouldn't it be like that? That is exactly the same experience we had when writing functional test for websites!
+Even when using Robotium my experience from several large Android projects is that writing functional testing in Java is just wrong. Over time, the ever growing test suite becomes takes more and more resources to maintain mainly because the readability goes down. But hey! Why wouldn't it be like that? That is exactly the same experience we had when writing functional test for websites!
 
 Calabash uses Robotium as a library to make the interaction with the tested app as robust as possible while letting the developer or tester write precise and clean test that are easy to maintain.
 
@@ -44,5 +44,10 @@ And that's why you should give [Calabash Android](http://github.com/calabash/cal
 Testing Hybrid Apps
 -------------------
 If you are using Appcelerator, PhoneGap, Sencha Touch or any of the other frameworks for creating *hybrid apps*. 
-You should really take a look at the Calabash. By using the same Cucumber interface for a native app you can test HTML 5 part of your application.
+You should really take a look at Calabash. By using the same Cucumber interface as for a native app you can test HTML 5 part of your application.
 Testing webviews has not been posible with the currently available test frameworks. But with Calabash you can!
+
+
+Questions
+---------
+Let me know at jonas@lesspainful.com or [@jonasmaturana](https://twitter.com/#!/jonasmaturana).
