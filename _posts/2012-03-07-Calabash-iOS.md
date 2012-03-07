@@ -35,7 +35,7 @@ You can visualize this as:
 
 Calabash iOS supports running on the iOS simulator as well as iPhones, iPads and iPod touches (whether jailbroken or not). The calabash server framework is distributed as a  universal framework for your convenience.
 
-The client library, calabash-cucumber, is installed using [RubyGems](http://rubygems.org/) (see detailed instructions under [Installing the client](https://github.com/calabash/calabash-ios)).
+The client library, calabash-cucumber, is installed using [RubyGems](http://rubygems.org/) which is as simple as running `gem install calabash-cucumber`.
 
 
 ### Comparison with other functional testing systems
@@ -58,14 +58,14 @@ Finally, we needed support for some advanced features that Frank just didn't hav
 Frank also has the cool Symbiote tool which let's you explore your app from a browser. We don't have Symbiote in Calabash, but instead we have a powerful console based tool for interacting and exploring your application (more on this in a later blog post).
 
 ### KIF, iCuke, FoneMonkey
-KIF is another cool project. KIF has an Apache 2.0 license which is ok, but two primary things kept us from going down this route. First, KIF is based on the same touch emulation code as UISpec, and has the same limitations (which actually goes back to a seminal CocoaWithLove post from 2008, [Synthesizing touch events on iPhone](http://cocoawithlove.com/2008/10/synthesizing-touch-event-on-iphone.html)). Secondly, KIF tests are written in Objective-C, and we specifically wanted [Cucumber](http://cukes.info) for the reasons outlined in the [Introductory post](http://blog.lesspainful.com/2012/03/07/Calabash/).
+*KIF* is another cool project. KIF has an Apache 2.0 license which is ok, but two primary things kept us from going down this route. First, KIF is based on the same touch emulation code as UISpec, and has the same limitations (which actually goes back to a seminal CocoaWithLove post from 2008, [Synthesizing touch events on iPhone](http://cocoawithlove.com/2008/10/synthesizing-touch-event-on-iphone.html)). Secondly, KIF tests are written in Objective-C, and we specifically wanted [Cucumber](http://cukes.info) for the reasons outlined in the [Introductory post](http://blog.lesspainful.com/2012/03/07/Calabash/).
 
 [iCuke](https://github.com/unboxed/icuke) actually looked very promising two years ago. Unfortunately its author, Rob Holland, has abandoned it, and we had a difficult time proceeding with it.
 
-FoneMonkey, is GPL licensed and doesn't support Cucumber (also, I have a personal issue with recording-based approaches to test code generation).
+*FoneMonkey*, is GPL licensed and doesn't support Cucumber. FoneMonkey is primarily based on a test recording approach, and we specifically didn't want recording of test scripts since it often leads to large, unreadable and unmaintainable test script . We do actually support a [different form of recording](https://github.com/calabash/calabash-ios/wiki) that doesn't suffer from this problem, but that's a topic for another blog post.
 
 ### UIAutomation and Zucchini
-Apple's UIAutomation framework is actually quite advanced in supporting various gestures. It's also simple to set up since it works without modification to the app (runs via instruments). There are a couple of reasons why we decided not to use UIAutomation.
+Apple's *UIAutomation framework* is actually quite advanced in supporting various gestures. It's also simple to set up since it works without modification to the app (runs via instruments). There are a couple of reasons why we decided not to use UIAutomation.
 
 First, UIAutomation is not open source - this means we have to wait for Apple to make bug fixes, and we can't extend it. It is also very poorly documented by Apple, and not that much information available on the net.
 
