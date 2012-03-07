@@ -288,7 +288,7 @@
     <div id="logoring"></div>
 
     <div id="logo"></div>
-    <div id="logolink"><a href="/"><img src="img/blank.gif" alt="LessPainful" width="100%" height="100%" /></a></div>
+    <div id="logolink"><a href="/"><img src="/img/blank.gif" alt="LessPainful" width="100%" height="100%" /></a></div>
 
     <div id="topnav">
       <a href="https://www.lesspainful.com/">Home</a>
@@ -311,16 +311,27 @@
       
       <section> 
         <div class="content">
-  <div id="post">
-    <h1>!!!</h1>
-    <h2>Calabash: Functional Testing for Mobile Apps</h2>
+  <div class="post">
+      <div class="p_head">
+        <div class="p_thumb" style="background-image:url('/img/karl.jpg')"></div>
+        <div class="p_title">
+          <h1><a href="/2012/02/20/Calabash">Calabash</a></h1>
+        </div>
+        <div class="p_info">
+          Posted by Karl Krukow - February 20, 2012
+        </div>
+      </div>
+      <div class="p_content lightbg">
+        <div class="arrow_up_light"></div>
+        <div class="p_body">
+        <h2>Calabash: Functional Testing for Mobile Apps</h2>
 
-<p>Jonas and I are proud to release
-Calabash, a new functional testing tool for mobile apps based on
+<p>Jonas and I are proud to release Calabash, a new functional testing
+tool for Android and iOS mobile apps based on
 <a href="http://cukes.info">Cucumber</a>. LessPainful has been developing
-Calabash over the last year pursuing its expressive power, simplicity
-and stability. Calabash is the technology that powers device
-automation and test execution at
+Calabash over the last year working to improve its expressive power,
+simplicity and stability. Calabash was born out of a need for
+device automation and test execution at
 <a href="http://www.lesspainful.com">LessPainful</a>, but as of today it is
 released as open source to the general public:
 <a href="http://github.com/calabash">http://github.com/calabash</a>.</p>
@@ -329,7 +340,7 @@ released as open source to the general public:
 
 <p>The following section, <em>Introducing Calabash</em>, is intended to describe
 Calabash for people who don&rsquo;t already know Cucumber, or who haven&rsquo;t
-been looking at functional testing for mobile apps. If that doesn&rsquo;t
+been looking at functional testing for mobile apps. If this doesn&rsquo;t
 apply to you, you can go to the <a href="#rationale">Rationale and
 Benefits</a> section &ndash; otherwise just continue reading :)</p>
 
@@ -341,11 +352,11 @@ Benefits</a> section &ndash; otherwise just continue reading :)</p>
 imagine, calabash-android is the automation and testing library for
 Android, and similarly calabash-ios is for iOS.</p>
 
-<p>Calabash can be considered the underlying low-level libraries that
-empower the Cucumber tool to run automated functional tests on
-Android and iOS phones and tablets as well as on
+<p>Calabash-iOS and Calabash-Android are the underlying low-level
+libraries that empower the Cucumber tool to run automated functional
+tests on Android and iOS phones and tablets as well as on
 simulators. These low-level libraries enable QA, business staff and
-developers to work at a high level: they write tests in a natural
+developers to work at a high level by writing tests in a natural
 language using the terms and concepts of their business domain. For
 example, here is part of a test written with Calabash.</p>
 
@@ -375,11 +386,11 @@ example, here is part of a test written with Calabash.</p>
 surprise you that this description is actually an executable test
 specification that is part of a test suite for an iPhone app!</p>
 
-<p>In Cucumber and Calabash, one defines so-called feature files, that
-describe the intended behaviour of the app. You can think of a feature
-file as an executable test specification of a use case of the app. In
-our example above, we have a <em>feature</em> which describes functionality
-for rating a food stand at
+<p>The file above is called a feature file in Cucumber and Calabash. A
+feature file describes the intended behaviour of the app. You can think
+of a feature file as an executable test specification of a use case of
+the app. In our example above, we have a <em>feature</em> which describes
+functionality for rating a food stand at
 <a href="http://roskilde-festival.dk/uk/">Roskilde Festival</a>. A feature
 consists of one or more scenarios, corresponding more or less to the
 possible outcomes of the use cases. In our simple example we have only
@@ -414,11 +425,11 @@ or iOS devices and operating system can be really useful. This type of visual te
 
 <p>We&rsquo;ll describe briefly how Calabash works. You can get more details in the blog posts on <a href="http://blog.lesspainful.com/...">Calabash Android</a> and <a href="http://blog.lesspainful.com/...">Calabash iOS</a>. You can also go straight to the sources: <a href="http://github.com/calabash/calabash-android">http://github.com/calabash/calabash-android</a>, <a href="http://github.com/calabash/calabash-ios">http://github.com/calabash/calabash-ios</a> and <a href="http://github.com/calabash/calabash-ios-server">http://github.com/calabash/calabash-ios-server</a>.</p>
 
-<p><em>Calabash iOS</em> consists of two parts: a client library written in Ruby, and <code>calabash.framework</code>, a server framework written in Objective-C (a Clojure/JVM version of the client is coming too!). To use calabash you make a special test target in XCode that links with <code>calabash.framework</code>. The application is otherwise unchanged. The server framework will start an HTTP server inside your app that listens for requests from the client library.</p>
+<p><em>Calabash iOS</em> consists of two parts: a client library written in Ruby, and <code>calabash.framework</code>, a server framework written in Objective-C (a Clojure/JVM version of the client is coming too). To use calabash you make a special test target in XCode that links with <code>calabash.framework</code>. The application is otherwise unchanged. The server framework will start an HTTP server inside your app that listens for requests from the client library.</p>
 
 <p>The cucumber tool executes your feature files which contain steps that are defined either in <em>predefined</em> or <em>custom</em> (user defined) steps definitions. Custom steps are written using the API that the client library exposes. The API methods make HTTP requests to the server, which does things like finding components in the UI and taking actions on them. Here is an illustration:</p>
 
-<p><img src="img/calabash-ios.png" alt="Calabash-iOS architecture" /></p>
+<p><img src="/img/calabash-ios.png" alt="Calabash-iOS architecture" /></p>
 
 <p><em>Calabash Android</em> is slightly different&hellip;(<a href="#TODO_Jonas">Jonas</a>)</p>
 
@@ -441,7 +452,7 @@ or iOS devices and operating system can be really useful. This type of visual te
     which are different per platform. (If you're thinking Windows Phone? Then, yes, it is an option, but we haven't gotten round to it yet ;)
  </dd>
  <dt>Cucumber</dt>
- <dd>We wanted a high-level, domain-centric language for specification. The Cucumber technology gives us this. A Cucumber feature file can be written by QA, domain experts or developers; developers or technical test staff can then write step definitions to realize the steps on each platform (possibly using one of the many predefined steps or APIs).</dd>
+ <dd>We wanted a high-level, domain-centric language for specification. The Cucumber technology gives us this. A Cucumber feature file can be written by QA, domain experts or developers. Developers or technical test staff can then write step definitions to realize the steps on each platform (possibly using one of the many predefined steps or APIs).</dd>
  <dt>Authenticity</dt>
  <dd>We wanted a test automation technology that is as authentic as possible. Test must be able to run equally well on physical, non-jailbroken devices as on simulators. The <a href="#LessPainful">LessPainful Service</a> takes this to the next level, by providing a test execution environment for running tests concurrently on many different devices (we even do <a href="">rotation using little robots!</a>).
  </dd>
@@ -462,27 +473,29 @@ or iOS devices and operating system can be really useful. This type of visual te
 <p>What is the role of <a href="http://www.lesspainful.com">LessPainful</a> in
 regard to Calabash, and what services do we provide?</p>
 
-<p>LessPainful is the founder of Calabash: we are its core committers and
+<p>LessPainful is the creator of Calabash: we are its core committers and
 we are dedicated to continuously improving it. Our business model
-consists of two offerings.</p>
+consists of two offerings:</p>
 
-<p>First, we offer commercial support, training and consulting on
+<ul>
+<li><p>We offer commercial support, training and consulting on
 automated testing of mobile apps. We can also help setup advanced
-continuous integration build environments on iOS and Android.</p>
-
-<p>Secondly, LessPainful provides a test execution service which runs
+continuous integration build environments on iOS and Android.</p></li>
+<li><p>We provides a test execution service which runs
 Calabash tests &ldquo;in the cloud&rdquo;. The service automates running tests
 concurrently on several physical, non-jailbroken Android and iOS
 phones and tablets. We support several operating system versions, as
-well as device language and regional settings.</p>
+well as device language and regional settings.</p></li>
+</ul>
+
 
 <p>The LessPainful service provides visual test reports. This lets you
 easily compare test results and the visual appearance of your app
 across different devices. Here is an example test report from our
 example &ldquo;food stand&rdquo; app:</p>
 
-<p><a href="img/test_report_overview.png">
-<img src="img/test_report_large.png" title="Test report overview" alt="Test report overview">
+<p><a href="/img/test_report_overview.png">
+<img src="/img/test_report_large.png" title="Test report overview" alt="Test report overview">
 </a></p>
 
 <p>The LessPainful Service is designed to support continuous integration
@@ -491,15 +504,28 @@ daily basis.</p>
 
 <p>Here is part of an Android test running on &hellip; different models!</p>
 
-<p><a href="img/android_test_report_overview.png">
-<img src="img/android_test_report_large.png" title="Android test report overview" alt="Android test report overview">
+<p><a href="/img/android_test_report_overview.png">
+<img src="/img/android_test_report_large.png" title="Android test report overview" alt="Android test report overview">
 </a></p>
 
-<h3>Discuss!</h3>
-
-<p>Discuss this on Hackernews!</p>
-
-  </div>
+        </div>
+      
+    
+	    <div id="disqus_thread"></div>
+			<script type="text/javascript">
+			    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+			    var disqus_shortname = 'lesspainfulblog'; // required: replace example with your forum shortname
+			    /* * * DON'T EDIT BELOW THIS LINE * * */
+			    (function() {
+			        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+			        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+			        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+			    })();
+			</script>
+			<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+			<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+			</div>
+		</div>
 </div>
 
       </section>
@@ -516,6 +542,18 @@ daily basis.</p>
         <h3><a href="#more_stuff">Navigation<br/>and Stuff</a></h3>
         <a href="https://www.lesspainful.com" class="first">LessPainful.com ›</a>
         <a href="https://github.com/calabash">Calabash on GitHub ›</a>
+      </div>
+
+      <div class="b_nav greenbg">
+        <div class="arrow_left green"></div>
+        <h3><a href="#categories_page">History</a></h3>
+        
+          <a class="first" href="/2012/02/25/Calabash-Android"> An Overview of Calabash Android ›</a>
+        
+          <a class="" href="/2012/02/21/Calabash-iOS"> An Overview of Calabash iOS ›</a>
+        
+          <a class="last" href="/2012/02/20/Calabash"> Calabash ›</a>
+        
       </div>
   </div>
 
