@@ -9,7 +9,7 @@ An Overview of Calabash Android
 -------------------------
 This post describes [Calabash Android](http://github.com/calabash/calabash-android) in some technical detail. It will give you an architectural overview of Calabash Android and a resume of the functional testing tools available for Android. It assumes that you  are familiar with [Cucumber](http://cukes.info) and Android development.
 
-- For an introduction to Calabash and LessPainful (and some info on Cucumber), please read [Calabash: Functional Testing for Mobile Apps](...).
+- For an introduction to Calabash and LessPainful (and some info on Cucumber), please read [Calabash: Functional Testing for Mobile Apps](/2012/03/07/Calabash/).
 - Instructions for how to use Calabash in your Android project can be found on [Github](http://github.com/calabash/calabash-android).
 
 
