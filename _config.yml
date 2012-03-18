@@ -3,6 +3,7 @@ safe: true
 auto: true
 markdown: rdiscount
 permalink: /:year/:month/:day/:title
+url: http://blog.lesspainful.com
 rdiscount:
   extensions: [smart]
   

@@ -3,13 +3,14 @@ layout: post
 title: An Overview of Calabash Android
 author: Jonas Maturana Larsen
 author_img: jonas.jpg
+author_email: jonas@lesspainful.com
 ---
 
 An Overview of Calabash Android
 -------------------------
 This post describes [Calabash Android](http://github.com/calabash/calabash-android) in some technical detail. It will give you an architectural overview of Calabash Android and a resume of the functional testing tools available for Android. It assumes that you  are familiar with [Cucumber](http://cukes.info) and Android development.
 
-- For an introduction to Calabash and LessPainful (and some info on Cucumber), please read [Calabash: Functional Testing for Mobile Apps](/2012/03/07/Calabash/).
+- For an introduction to Calabash and LessPainful (and some info on Cucumber), please read [Calabash: Functional Testing for Mobile Apps]({{ site.url }}/2012/03/07/Calabash/).
 - Instructions for how to use Calabash in your Android project can be found on [Github](http://github.com/calabash/calabash-android).
 
 
@@ -17,7 +18,7 @@ Calabash Android Architecture
 -----------------------------
 When a Calabash Android test is executed both your local computer and a device is involved. The device might be an emulator or an actual physical device.
 The setup looks like this:
-![Calabash-Android architecture](/img/CalabashAndroidArchitecture.png)
+![Calabash-Android architecture]({{ site.url }}/img/CalabashAndroidArchitecture.png)
 
 - Features. The feature files describe the user-stories you want to test. You can test one or more features in one test run.
 

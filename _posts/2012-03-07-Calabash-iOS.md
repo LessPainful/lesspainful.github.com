@@ -3,6 +3,7 @@ layout: post
 title: An Overview of Calabash iOS
 author: Karl Krukow
 author_img: karl.jpg
+author_email: karl@lesspainful.com
 ---
 
 An Overview of Calabash iOS
@@ -31,7 +32,7 @@ Calabash tests are executed with the [Cucumber tool](http://cukes.info) and cons
 
 You can visualize this as:
 
-![Calabash-iOS architecture](/img/calabash-ios.png)
+![Calabash-iOS architecture]({{ site.url }}/img/calabash-ios.png)
 
 Calabash iOS supports running on the iOS simulator as well as iPhones, iPads and iPod touches (whether jailbroken or not). The calabash server framework is distributed as a  universal framework for your convenience.
 
