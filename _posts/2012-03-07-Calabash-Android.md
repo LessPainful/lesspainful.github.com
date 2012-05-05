@@ -22,7 +22,7 @@ The setup looks like this:
 
 - Features. The feature files describe the user-stories you want to test. You can test one or more features in one test run.
 
-- Step Definitions. Calabash Android comes with a set of predefined step which you can find [here](https://github.com/calabash/calabash-android/blob/master/features/step_definitions/canned_steps.md). These steps are generic and made to get you up and running fast. 
+- Step Definitions. Calabash Android comes with a set of predefined step which you can find [here](https://github.com/calabash/calabash-android/blob/master/ruby-gem/lib/calabash-android/canned_steps.md). These steps are generic and made to get you up and running fast. 
 When you get more into Calabash you can implement your own custom steps that use the business terms your project uses like `I transfer money to my spendings account` or `I play "Never Gonna Give You Up"`.
 
 - Your app. You don't have to make modifications to your app before testing it.
