@@ -4,6 +4,7 @@ title: An Overview of Calabash Android
 author: Jonas Maturana Larsen
 author_img: jonas.jpg
 author_email: jonas@lesspainful.com
+published: false
 ---
 
 Hacking ActivityInstrumentationTestCase2
