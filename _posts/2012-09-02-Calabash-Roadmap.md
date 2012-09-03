@@ -36,7 +36,7 @@ This will lead to a set of unified APIs that can be used in your iOS and Android
 
 Extending Reach
 -------------------------
-<a href="http://openjdk.java.net/projects/mlvm/"><img alt="Da Vinci Machine Project" title="Da Vinci Machine Project" style="float:right" src=""http://blog.lesspainful.com/img/helicopter.png"></a>
+<a href="http://openjdk.java.net/projects/mlvm/"><img alt="Da Vinci Machine Project" title="Da Vinci Machine Project" style="float:right" src="http://blog.lesspainful.com/img/helicopter.png"></a>
 There are many programmers and QA staff out there that are already familiar with JVM-based languages and tools. Many shops have invested in the JVM both as a platform for development and testing.
 
 While we love Ruby and enjoy working with it, we also understand that not everyone has the time or will to learn a new programming language. So while Ruby is a very nice language to work with and has a great ecosystem and community supporting testing, it does restrict the reach of Calabash.
