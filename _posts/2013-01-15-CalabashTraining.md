@@ -8,7 +8,7 @@ published: true
 ---
 # Intensive Calabash Training
 
-LessPainful offers a [number of services](https://www.lesspainful.com/pricing) to support the [Calabash](http://calaba.sh) project. One of the most popular services has been on-site training for companies adopting Calabash. However, until now these courses have been on-site and for a singles companies only.
+LessPainful offers a [number of services](https://www.lesspainful.com/pricing) to support the [Calabash](http://calaba.sh) project. One of the most popular services has been on-site training for companies adopting Calabash. However, until now these courses have been on-site and for single companies only.
 
 <img src="/img/training_karl.jpeg" style="float:left; margin-right:10px"> We'll now run our first public training course, which will be held in London on February 11th-12th. To get the most effective training, we'll accept at most 15 participants so reserve your spot now! To register, please use [London training registration form](https://www.lesspainful.com/pricing/training).
 
