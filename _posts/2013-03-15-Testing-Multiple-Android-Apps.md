@@ -16,24 +16,23 @@ The default setup for Calabash-Android is to test a single Android application a
 *Notice that this post is written based on the current pre release of Calabash Android (0.4.3.pre3)*
 
 
-Primer to Calabash-Android architecture
+Primer: Calabash-Android architecture
 ---------------------------------------
 
-Calabash-Android is build with a client-server architecture that communicate over HTTP. The responsibilites are split like this:
+Calabash-Android has a client-server architecture where client and server communicate via HTTP. The responsibilites are split like this:
 
 * *Client*
   The client sends commands to the test server using `performAction`, `query` a number of other methods.
-  Besides the communication the client is responsible for installing, starting, stopping the test server.
+  Besides the communication, the client is responsible for installing, starting, stopping the test server.
 
 * *Test Server*
-  The test server is a special instrumentation app that has special permissions to access your app. When a test server is launched it will start a HTTP server on a specified port, start your app and start waiting for requests.
+  The test server is an instrumentation app that has special permissions to access your app. When a test server is launched it will start an HTTP server on a specified port, start your app and start waiting for requests.
 
-By the nature of the Android instrumentation framework each test server can only test a single app so to achive multi-app-testing.
+By the nature of the Android instrumentation framework, each test server can only test a single app, so to achive multi-app-testing we need to do something special.
 
-When you test an app using the generated project structure that calabash-android can create for you the test server will be installed and started on the one device or emulator you have connected to your computer. The test server will listen on port 7102 and `localhost:34777` will be setup to forward to `device:7102` over USB.
-All requests from the client is send to this default test server.
+When you test an app using the generated project structure, the test server will be installed and started on the single device or emulator you have connected to your computer. The test server will listen on port 7102 and `localhost:34777` will be setup to forward to `device:7102` over USB. All requests from the client is sent to this default test server.
 
-So all we need to do to start multiple test servers and configure the client to send requests to the right one. Let's see how we can do that.
+So to test multiple apps, all we need to do is to start multiple test servers. We then configure the client to send requests to each app in turn. Let's see how we can do that.
 
 Testing Multiple Apps
 ---------------------
@@ -46,7 +45,7 @@ Create the test servers like this:
     calabash-android build app2.apk
 
 
-If you put the following in your `features/support/app_installation_hooks.rb` and remove `features/support/app_life_cycle_hooks.rb` you will get two test servers started when executing `calabash-android run` - one listeing on port 7103 and another listening on port 7104.
+If you put the following in your `features/support/app_installation_hooks.rb` and remove `features/support/app_life_cycle_hooks.rb` you will get two test servers started when executing `calabash-android run`: one listening on port 7103 and another listening on port 7104.
 
     require 'calabash-android/management/app_installation'
 
@@ -73,5 +72,4 @@ If you put the following in your `features/support/app_installation_hooks.rb` an
 All requests including those from predifined steps will now be send to app1 running on `localhost:34801`.
 
 To start communicating with app2 simply call `set_default_device(@@app2)`.
-
 
