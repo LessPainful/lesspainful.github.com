@@ -4,7 +4,6 @@ title: Testing Multiple Android Apps
 author: Jonas Maturana Larsen
 author_img: jonas.jpg
 author_email: jonas@lesspainful.com
-published:false
 ---
 
 Testing Multiple Android Apps
