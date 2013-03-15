@@ -4,18 +4,21 @@ title: Testing Multiple Android Apps
 author: Jonas Maturana Larsen
 author_img: jonas.jpg
 author_email: jonas@lesspainful.com
+published:false
 ---
 
 Testing Multiple Android Apps
--------------------------
+=============================
 The default setup for Calabash-Android is to test a single Android application at a time.
 `calabash-android gen` wil generate hooks that will install, launch and uninstall at appropriate times to support the single app use case. However, sometimes it can be useful to interact with multiple apps at the same time. This blog post will dig into details of calabash-android that you might not have touched before.
 
 
 
+*Notice that this post is written based on the current pre release of Calabash Android (0.4.3.pre3)*
+
 
 Primer to Calabash-Android architecture
-=======================================
+---------------------------------------
 
 Calabash-Android is build with a client-server architecture that communicate over HTTP. The responsibilites are split like this:
 
@@ -29,10 +32,12 @@ Calabash-Android is build with a client-server architecture that communicate ove
 By the nature of the Android instrumentation framework each test server can only test a single app so to achive multi-app-testing.
 
 When you test an app using the generated project structure that calabash-android can create for you the test server will be installed and started on the one device or emulator you have connected to your computer. The test server will listen on port 7102 and `localhost:34777` will be setup to forward to `device:7102` over USB.
-All requests from the client is send to this default test server running on
+All requests from the client is send to this default test server.
 
 So all we need to do to start multiple test servers and configure the client to send requests to the right one. Let's see how we can do that.
 
+Testing Multiple Apps
+---------------------
 
 Let's assume that we have two apps called `app1.apk` and `app2.apk` located in the root of our project folder.
 
@@ -48,10 +53,12 @@ If you put the following in your `features/support/app_installation_hooks.rb` an
 
     AfterConfiguration do |config|
       path1 = File.expand_path("app1.apk")
-      @@app1 = Calabash::Android::Operations::Device.new(self, nil, "34801", path1, test_server_path(path1), 7103)
+      @@app1 = Calabash::Android::Operations::Device.new(
+        self, nil, "34801", path1, test_server_path(path1), 7103)
 
       path2 = File.expand_path("app2.apk")
-      @@first_run = Calabash::Android::Operations::Device.new(self, nil, "34800", path2, test_server_path(path2), 7104)
+      @@app2 = Calabash::Android::Operations::Device.new(
+        self, nil, "34802", path2, test_server_path(path2), 7104)
     end
 
     Before do |scenario|
@@ -63,4 +70,9 @@ If you put the following in your `features/support/app_installation_hooks.rb` an
       @@app1.start_test_server_in_background
       set_default_device(@@app1)
     end
+
+All requests including those from predifined steps will now be send to app1 running on `localhost:34801`.
+
+To start communicating with app2 simply call `set_default_device(@@app2)`.
+
 
